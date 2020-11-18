@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "traefik-v2-helm.fullname" . }}
+  labels:
+    {{- include "traefik-v2-helm.labels" . | nindent 4 }}
+data:
+  # file-like keys
+  traefik.yaml: {{ toYaml .Values.traefik.configStatic | indent 4 }}
+  traefik-dynamic.yaml: {{ toYaml .Values.traefik.configDynamic | indent 4 }}
+
