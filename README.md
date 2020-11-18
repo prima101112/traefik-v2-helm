@@ -24,7 +24,7 @@ helm install traefik-v2 .
 helm upgrade traefik-v2 .
 ```
 
-## Yopur dashboard should show up
+## Your dashboard should show up
 ```
 kubectl get svc --namespace default traefik-v2-helm --template "{{ range (index .status.loadBalancer.ingress 0) }}{{.}}{{ end }}"
 ```
